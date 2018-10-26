@@ -1,0 +1,19 @@
+h2 My Heroes
+
+ul.heroes
+  li.heroes__item(
+    *ngFor="let hero of heroes"
+    '(click)'="onSelect(hero)"
+    '[attr.data-selected]'="hero === selectedHero"
+  )
+    span.badge {{hero.id}}
+    | {{hero.name}}
+
+.hero-detail(*ngIf="selectedHero")
+  h2 {{selectedHero.name | uppercase}} Detail
+  div
+    span id:
+    | {{selectedHero.id}}
+    label
+      | name:
+      input(type="text" placeholder="name" [(ngModel)]="selectedHero.name")
