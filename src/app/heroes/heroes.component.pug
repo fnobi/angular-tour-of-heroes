@@ -9,11 +9,4 @@ ul.heroes
     span.badge {{hero.id}}
     | {{hero.name}}
 
-.hero-detail(*ngIf="selectedHero")
-  h2 {{selectedHero.name | uppercase}} Detail
-  div
-    span id:
-    | {{selectedHero.id}}
-    label
-      | name:
-      input(type="text" placeholder="name" [(ngModel)]="selectedHero.name")
+app-hero-detail([hero]="selectedHero")
